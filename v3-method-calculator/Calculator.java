@@ -1,4 +1,4 @@
-import java.util.scanner;
+import java.util.Scanner;
 
 public class Calculator {
     public static double add(double a, double b){
@@ -12,15 +12,18 @@ public class Calculator {
         return a * b;
     }
 
-    public static double devide(double a ,double b){
+    public static double divide(double a ,double b){
         return a / b;
     }
 
-    public static void main ( Strinng[] args) {
+    public static void main (String[] args) {
 
         Scanner input = new Scanner(System.in);
+        boolean running = true;
 
-        System.out.print("Enter first number: ");
+        while (running) {
+
+             System.out.print("Enter first number: ");
         double num1 = input.nextDouble();
 
         System.out.print("Enter second number: ");
@@ -49,7 +52,7 @@ public class Calculator {
                 break;
 
             case 4:
-                result = devide(num1,num2);
+                result = divide(num1,num2);
                 break;
 
             default:
@@ -57,6 +60,19 @@ public class Calculator {
         }
 
         System.out.println(" Result : " + result);
+
+        //asking user to continue
+
+        System.out.println("continue ? yes / no : ");
+        String again = input.next();
+
+        if(again.equalsIgnoreCase("no")) {
+            running = false;
+            System.out.println("Calculator closed....");
+        }
+        
+        }
+
         input.close();
 
     }
